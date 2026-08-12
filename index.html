@@ -104,29 +104,29 @@
         </div>
     </main>
 
-    <!-- Detailed Service Modal Window (Includes Steps, Document Checklist & FAQs) -->
+    <!-- Detailed Service Modal Window (Takes 80% Screen Width & Height) -->
     <div id="faqModal" class="fixed inset-0 bg-black/60 hidden flex items-center justify-center p-4 z-50">
-        <div class="bg-white rounded-2xl max-w-[80vw] w-[80vw] h-[80vh] overflow-hidden shadow-2xl transform transition-transform duration-300 flex flex-col">
-            <div class="bg-blue-900 text-white px-8 py-5 flex justify-between items-center">
+        <div class="bg-white rounded-2xl w-11/12 md:w-4/5 max-w-6xl h-[85vh] overflow-hidden shadow-2xl transform transition-transform duration-300 flex flex-col">
+            <div class="bg-blue-900 text-white px-8 py-5 flex justify-between items-center shrink-0">
                 <h3 id="modalTitle" class="text-2xl font-bold">Service Details & Application Guide</h3>
-                <button onclick="closeModal()" class="text-white hover:text-amber-400 text-3xl font-bold">&times;</button>
+                <button onclick="closeModal()" class="text-white hover:text-amber-400 text-3xl font-bold cursor-pointer">&times;</button>
             </div>
             
             <!-- Modal Navigation Sub-tabs -->
-            <div class="flex border-b border-gray-200 bg-gray-50 px-8 pt-3 gap-8">
-                <button onclick="switchModalTab('steps')" id="tabBtnSteps" class="pb-3 text-base font-bold border-b-2 border-blue-900 text-blue-900 transition">Steps to Apply</button>
-                <button onclick="switchModalTab('docs')" id="tabBtnDocs" class="pb-3 text-base font-bold border-b-2 border-transparent text-gray-500 hover:text-gray-900 transition">Document Checklist</button>
-                <button onclick="switchModalTab('faqs')" id="tabBtnFaqs" class="pb-3 text-base font-bold border-b-2 border-transparent text-gray-500 hover:text-gray-900 transition">FAQs</button>
+            <div class="flex border-b border-gray-200 bg-gray-50 px-8 pt-3 gap-8 shrink-0">
+                <button onclick="switchModalTab('steps')" id="tabBtnSteps" class="pb-3 text-lg font-bold border-b-2 border-blue-900 text-blue-900 transition">Steps to Apply</button>
+                <button onclick="switchModalTab('docs')" id="tabBtnDocs" class="pb-3 text-lg font-bold border-b-2 border-transparent text-gray-500 hover:text-gray-900 transition">Document Checklist</button>
+                <button onclick="switchModalTab('faqs')" id="tabBtnFaqs" class="pb-3 text-lg font-bold border-b-2 border-transparent text-gray-500 hover:text-gray-900 transition">FAQs</button>
             </div>
 
             <div class="p-8 overflow-y-auto space-y-6 flex-grow" id="modalBody">
                 <!-- Content loaded dynamically based on tab -->
             </div>
 
-            <div class="p-5 bg-gray-50 border-t flex justify-between items-center">
-                <span class="text-sm text-gray-500" id="modalFooterNote">Official guidance and details</span>
+            <div class="p-5 bg-gray-50 border-t flex justify-between items-center shrink-0">
+                <span class="text-sm font-medium text-gray-500" id="modalFooterNote">Official guidance and details</span>
                 <div class="flex gap-4">
-                    <button onclick="closeModal()" class="px-6 py-2.5 rounded-lg border text-sm font-bold text-gray-700 hover:bg-gray-100" id="modalCloseBtn">Close</button>
+                    <button onclick="closeModal()" class="px-6 py-2.5 rounded-lg border text-sm font-bold text-gray-700 hover:bg-gray-100 cursor-pointer" id="modalCloseBtn">Close</button>
                     <a id="modalRedirectBtn" href="#" target="_blank" class="px-6 py-2.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-bold flex items-center gap-2">
                         <span id="modalRedirectText">Apply on Official Site</span> <i class="fa-solid fa-up-right-from-square text-xs"></i>
                     </a>
@@ -913,9 +913,9 @@
             const btnDocs = document.getElementById("tabBtnDocs");
             const btnFaqs = document.getElementById("tabBtnFaqs");
 
-            btnSteps.className = "pb-3 text-base font-bold border-b-2 transition " + (tabName === 'steps' ? "border-blue-900 text-blue-900" : "border-transparent text-gray-500 hover:text-gray-900");
-            btnDocs.className = "pb-3 text-base font-bold border-b-2 transition " + (tabName === 'docs' ? "border-blue-900 text-blue-900" : "border-transparent text-gray-500 hover:text-gray-900");
-            btnFaqs.className = "pb-3 text-base font-bold border-b-2 transition " + (tabName === 'faqs' ? "border-blue-900 text-blue-900" : "border-transparent text-gray-500 hover:text-gray-900");
+            btnSteps.className = "pb-3 text-lg font-bold border-b-2 transition " + (tabName === 'steps' ? "border-blue-900 text-blue-900" : "border-transparent text-gray-500 hover:text-gray-900");
+            btnDocs.className = "pb-3 text-lg font-bold border-b-2 transition " + (tabName === 'docs' ? "border-blue-900 text-blue-900" : "border-transparent text-gray-500 hover:text-gray-900");
+            btnFaqs.className = "pb-3 text-lg font-bold border-b-2 transition " + (tabName === 'faqs' ? "border-blue-900 text-blue-900" : "border-transparent text-gray-500 hover:text-gray-900");
 
             renderModalContent();
         }
