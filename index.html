@@ -106,29 +106,29 @@
 
     <!-- Detailed Service Modal Window (Includes Steps, Document Checklist & FAQs) -->
     <div id="faqModal" class="fixed inset-0 bg-black/60 hidden flex items-center justify-center p-4 z-50">
-        <div class="bg-white rounded-2xl max-w-2xl w-full overflow-hidden shadow-2xl transform scale-95 transition-transform duration-300 flex flex-col max-h-[85vh]">
-            <div class="bg-blue-900 text-white px-6 py-4 flex justify-between items-center">
-                <h3 id="modalTitle" class="text-lg font-bold">Service Details & Application Guide</h3>
-                <button onclick="closeModal()" class="text-white hover:text-amber-400 text-2xl font-bold">&times;</button>
+        <div class="bg-white rounded-2xl max-w-[80vw] w-[80vw] h-[80vh] overflow-hidden shadow-2xl transform transition-transform duration-300 flex flex-col">
+            <div class="bg-blue-900 text-white px-8 py-5 flex justify-between items-center">
+                <h3 id="modalTitle" class="text-2xl font-bold">Service Details & Application Guide</h3>
+                <button onclick="closeModal()" class="text-white hover:text-amber-400 text-3xl font-bold">&times;</button>
             </div>
             
             <!-- Modal Navigation Sub-tabs -->
-            <div class="flex border-b border-gray-200 bg-gray-50 px-6 pt-2 gap-4">
-                <button onclick="switchModalTab('steps')" id="tabBtnSteps" class="pb-2 text-xs font-bold border-b-2 border-blue-900 text-blue-900 transition">Steps to Apply</button>
-                <button onclick="switchModalTab('docs')" id="tabBtnDocs" class="pb-2 text-xs font-bold border-b-2 border-transparent text-gray-500 hover:text-gray-900 transition">Document Checklist</button>
-                <button onclick="switchModalTab('faqs')" id="tabBtnFaqs" class="pb-2 text-xs font-bold border-b-2 border-transparent text-gray-500 hover:text-gray-900 transition">FAQs</button>
+            <div class="flex border-b border-gray-200 bg-gray-50 px-8 pt-3 gap-8">
+                <button onclick="switchModalTab('steps')" id="tabBtnSteps" class="pb-3 text-base font-bold border-b-2 border-blue-900 text-blue-900 transition">Steps to Apply</button>
+                <button onclick="switchModalTab('docs')" id="tabBtnDocs" class="pb-3 text-base font-bold border-b-2 border-transparent text-gray-500 hover:text-gray-900 transition">Document Checklist</button>
+                <button onclick="switchModalTab('faqs')" id="tabBtnFaqs" class="pb-3 text-base font-bold border-b-2 border-transparent text-gray-500 hover:text-gray-900 transition">FAQs</button>
             </div>
 
-            <div class="p-6 overflow-y-auto space-y-4 flex-grow" id="modalBody">
+            <div class="p-8 overflow-y-auto space-y-6 flex-grow" id="modalBody">
                 <!-- Content loaded dynamically based on tab -->
             </div>
 
-            <div class="p-4 bg-gray-50 border-t flex justify-between items-center">
-                <span class="text-xs text-gray-500" id="modalFooterNote">Official guidance and details</span>
-                <div class="flex gap-3">
-                    <button onclick="closeModal()" class="px-4 py-2 rounded-lg border text-xs font-bold text-gray-700 hover:bg-gray-100" id="modalCloseBtn">Close</button>
-                    <a id="modalRedirectBtn" href="#" target="_blank" class="px-5 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold flex items-center gap-2">
-                        <span id="modalRedirectText">Apply on Official Site</span> <i class="fa-solid fa-up-right-from-square text-[10px]"></i>
+            <div class="p-5 bg-gray-50 border-t flex justify-between items-center">
+                <span class="text-sm text-gray-500" id="modalFooterNote">Official guidance and details</span>
+                <div class="flex gap-4">
+                    <button onclick="closeModal()" class="px-6 py-2.5 rounded-lg border text-sm font-bold text-gray-700 hover:bg-gray-100" id="modalCloseBtn">Close</button>
+                    <a id="modalRedirectBtn" href="#" target="_blank" class="px-6 py-2.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-bold flex items-center gap-2">
+                        <span id="modalRedirectText">Apply on Official Site</span> <i class="fa-solid fa-up-right-from-square text-xs"></i>
                     </a>
                 </div>
             </div>
@@ -913,9 +913,9 @@
             const btnDocs = document.getElementById("tabBtnDocs");
             const btnFaqs = document.getElementById("tabBtnFaqs");
 
-            btnSteps.className = "pb-2 text-xs font-bold border-b-2 transition " + (tabName === 'steps' ? "border-blue-900 text-blue-900" : "border-transparent text-gray-500 hover:text-gray-900");
-            btnDocs.className = "pb-2 text-xs font-bold border-b-2 transition " + (tabName === 'docs' ? "border-blue-900 text-blue-900" : "border-transparent text-gray-500 hover:text-gray-900");
-            btnFaqs.className = "pb-2 text-xs font-bold border-b-2 transition " + (tabName === 'faqs' ? "border-blue-900 text-blue-900" : "border-transparent text-gray-500 hover:text-gray-900");
+            btnSteps.className = "pb-3 text-base font-bold border-b-2 transition " + (tabName === 'steps' ? "border-blue-900 text-blue-900" : "border-transparent text-gray-500 hover:text-gray-900");
+            btnDocs.className = "pb-3 text-base font-bold border-b-2 transition " + (tabName === 'docs' ? "border-blue-900 text-blue-900" : "border-transparent text-gray-500 hover:text-gray-900");
+            btnFaqs.className = "pb-3 text-base font-bold border-b-2 transition " + (tabName === 'faqs' ? "border-blue-900 text-blue-900" : "border-transparent text-gray-500 hover:text-gray-900");
 
             renderModalContent();
         }
@@ -928,10 +928,10 @@
 
             if (activeModalTabName === 'steps') {
                 const list = document.createElement('ol');
-                list.className = 'space-y-3';
+                list.className = 'space-y-4';
                 details.steps.forEach((step, index) => {
                     const li = document.createElement('li');
-                    li.className = 'flex gap-3 text-xs text-gray-700 bg-blue-50/50 p-3 rounded-xl border border-blue-100';
+                    li.className = 'flex gap-4 text-base text-gray-800 bg-blue-50/50 p-4 rounded-xl border border-blue-100';
                     li.innerHTML = `<span class="font-bold text-blue-900 shrink-0">Step ${index + 1}:</span> <span>${step}</span>`;
                     list.appendChild(li);
                 });
@@ -939,18 +939,18 @@
             } 
             else if (activeModalTabName === 'docs') {
                 const headerNote = document.createElement('p');
-                headerNote.className = 'text-xs font-bold text-gray-800 mb-3';
+                headerNote.className = 'text-base font-bold text-gray-800 mb-4';
                 headerNote.innerText = translations[currentLang].docChecklistHeader;
                 body.appendChild(headerNote);
 
                 const list = document.createElement('div');
-                list.className = 'space-y-2.5';
+                list.className = 'space-y-3';
                 details.documents.forEach((doc, index) => {
                     const label = document.createElement('label');
-                    label.className = 'flex items-center gap-3 p-3 bg-gray-50 hover:bg-gray-100/80 rounded-xl border border-gray-200 cursor-pointer transition';
+                    label.className = 'flex items-center gap-4 p-4 bg-gray-50 hover:bg-gray-100/80 rounded-xl border border-gray-200 cursor-pointer transition';
                     label.innerHTML = `
-                        <input type="checkbox" class="w-4 h-4 text-blue-900 rounded border-gray-300 focus:ring-blue-500">
-                        <span class="text-xs font-medium text-gray-800">${doc}</span>
+                        <input type="checkbox" class="w-5 h-5 text-blue-900 rounded border-gray-300 focus:ring-blue-500">
+                        <span class="text-base font-medium text-gray-800">${doc}</span>
                     `;
                     list.appendChild(label);
                 });
@@ -958,16 +958,16 @@
             } 
             else if (activeModalTabName === 'faqs') {
                 const list = document.createElement('div');
-                list.className = 'space-y-4';
+                list.className = 'space-y-5';
                 const faqsList = activeModalService.faqs[currentLang] || activeModalService.faqs['en'];
                 faqsList.forEach((faq, index) => {
                     const item = document.createElement('div');
-                    item.className = 'bg-gray-50 p-4 rounded-xl border border-gray-200';
+                    item.className = 'bg-gray-50 p-5 rounded-xl border border-gray-200';
                     item.innerHTML = `
-                        <h5 class="text-xs font-bold text-blue-900 mb-1 flex items-center gap-2">
-                            <i class="fa-solid fa-circle-question text-amber-500"></i> ${faq.q}
+                        <h5 class="text-base font-bold text-blue-900 mb-2 flex items-center gap-2">
+                            <i class="fa-solid fa-circle-question text-amber-500 text-lg"></i> ${faq.q}
                         </h5>
-                        <p class="text-xs text-gray-600 leading-relaxed pl-5">${faq.a}</p>
+                        <p class="text-sm text-gray-700 leading-relaxed pl-7">${faq.a}</p>
                     `;
                     list.appendChild(item);
                 });
