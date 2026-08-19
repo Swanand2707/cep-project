@@ -112,10 +112,10 @@
                 <button onclick="closeModal()" class="text-white hover:text-amber-400 text-3xl font-bold cursor-pointer">&times;</button>
             </div>
             
-            <!-- Modal Navigation Sub-tabs -->
+            <!-- Modal Navigation Sub-tabs (Includes Online Update) -->
             <div class="flex border-b border-gray-200 bg-gray-50 px-8 pt-3 gap-6 overflow-x-auto shrink-0" id="modalTabContainer">
                 <button onclick="switchModalTab('steps')" id="tabBtnSteps" class="pb-3 text-lg font-bold border-b-2 border-blue-900 text-blue-900 transition whitespace-nowrap">Steps to Apply</button>
-                <button onclick="switchModalTab('update')" id="tabBtnUpdate" class="pb-3 text-lg font-bold border-b-2 border-transparent text-gray-500 hover:text-gray-900 transition whitespace-nowrap">Online Update</button>
+                <button onclick="switchModalTab('update')" id="tabBtnUpdate" class="pb-3 text-lg font-bold border-b-2 border-transparent text-gray-500 hover:text-gray-900 transition whitespace-nowrap hidden">Online Update</button>
                 <button onclick="switchModalTab('docs')" id="tabBtnDocs" class="pb-3 text-lg font-bold border-b-2 border-transparent text-gray-500 hover:text-gray-900 transition whitespace-nowrap">Document Checklist</button>
                 <button onclick="switchModalTab('faqs')" id="tabBtnFaqs" class="pb-3 text-lg font-bold border-b-2 border-transparent text-gray-500 hover:text-gray-900 transition whitespace-nowrap">FAQs</button>
             </div>
@@ -176,7 +176,7 @@
                 askBtnText: "Ask",
                 correctedMsg: "Showing results for auto-corrected query: ",
                 assistantNotFound: "I couldn't find an exact match for that question. Try asking about Aadhaar update steps, PAN card documents, Driving License, or PM Kisan.",
-                tabSteps: "Steps to Apply",
+                tabSteps: "Steps to Apply (New)",
                 tabUpdate: "Online Update",
                 tabDocs: "Document Checklist",
                 tabFaqs: "FAQs",
@@ -208,7 +208,7 @@
                 askBtnText: "विचारा",
                 correctedMsg: "आपोआप दुरुस्त केलेल्या शोधाचे निकाल दर्शवत आहे: ",
                 assistantNotFound: "या प्रश्नाचे उत्तर सापडले नाही. कृपया आधार अपडेट पायऱ्या, पॅन कार्ड कागदपत्रे किंवा पीएम किसान बद्दल विचारा.",
-                tabSteps: "अर्ज करण्याची प्रक्रिया",
+                tabSteps: "नवीन नोंदणी प्रक्रिया",
                 tabUpdate: "ऑनलाइन अपडेट प्रक्रिया",
                 tabDocs: "आवश्यक कागदपत्रे",
                 tabFaqs: "प्रश्न आणि उत्तरे",
@@ -240,7 +240,7 @@
                 askBtnText: "पूछें",
                 correctedMsg: "स्वचालित रूप से सुधारे गए प्रश्न के परिणाम: ",
                 assistantNotFound: "मुझे उस प्रश्न का सटीक उत्तर नहीं मिला। आधार अपडेट, पैन कार्ड दस्तावेज या पीएम किसान के बारे में पूछने का प्रयास करें।",
-                tabSteps: "आवेदन के चरण",
+                tabSteps: "नया नामांकन चरण",
                 tabUpdate: "ऑनलाइन अपडेट",
                 tabDocs: "दस्तावेज़ चेकलिस्ट",
                 tabFaqs: "प्रश्न और उत्तर",
@@ -402,22 +402,16 @@
                 category: 'Finance',
                 icon: 'fa-address-card',
                 bgImage: 'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?q=80&w=600&auto=format&fit=crop',
-                officialUrl: 'https://incometax.gov.in',
+                officialUrl: 'https://www.pan.utiitsl.com/PAN',
                 en: {
                     name: 'PAN Card Application',
-                    desc: 'Apply for a Permanent Account Number (PAN) or correct existing PAN details online.',
+                    desc: 'Apply for a Permanent Account Number (PAN) essential for financial transactions, tax filings, and opening bank accounts.',
                     steps: [
                         "Visit the Protean (NSDL) or UTIITSL official PAN application portal.",
                         "Select Form 49A (for Indian citizens) or Form 49AA (for foreign citizens).",
                         "Fill in personal, contact, and income tax details carefully.",
                         "Upload scanned copies of identity proof, address proof, and passport-size photographs.",
                         "Pay the applicable processing fee online and submit your application to get an acknowledgement number."
-                    ],
-                    updateSteps: [
-                        "Visit the NSDL (Protean) or UTIITSL portal and select 'Changes/Correction in PAN Data'.",
-                        "Enter your existing 10-digit PAN number and fill in the updated personal details.",
-                        "Upload valid supporting proof (Aadhaar, Passport, or Election ID) for correction.",
-                        "Pay the processing fee online and complete e-Sign using Aadhaar OTP verification."
                     ],
                     documents: [
                         "Identity Proof: Aadhaar Card, Voter ID, or Passport",
@@ -428,18 +422,12 @@
                 },
                 mr: {
                     name: 'पॅन कार्ड अर्ज (PAN Card)',
-                    desc: 'नवीन पॅन कार्डसाठी अर्ज करा किंवा पॅन कार्डवरील माहिती ऑनलाइन दुरुस्त करा.',
+                    desc: 'आर्थिक व्यवहार, कर भरणे आणि बँक खाती उघडण्यासाठी आवश्यक असलेला कायमचा खाते क्रमांक (PAN) मिळवा.',
                     steps: [
                         "प्रोटियन (NSDL) किंवा युटीआयआयटीएसएलच्या अधिकृत पोर्टलला भेट द्या.",
                         "फॉर्म 49A निवडा आणि वैयक्तिक तपशील भरा.",
                         "ओळख आणि पत्त्याचे पुरावे स्कॅन करून अपलोड करा.",
                         "ऑनलाइन शुल्क भरा आणि पावती क्रमांक सुरक्षित ठेवा."
-                    ],
-                    updateSteps: [
-                        "NSDL किंवा UTIITSL पोर्टलला भेट द्या आणि 'Changes/Correction in PAN Data' निवडा.",
-                        "तुमचा हयात पॅन क्रमांक टाका आणि दुरुस्तीची नवीन माहिती भरा.",
-                        "ओळख किंवा पत्त्याचा नवीन पुरावा अपलोड करा.",
-                        "ऑनलाइन शुल्क भरा आणि आधार OTP द्वारे ई-साइन पूर्ण करा."
                     ],
                     documents: [
                         "ओळख पुरावा: आधार कार्ड, मतदान ओळखपत्र किंवा पासपोर्ट",
@@ -449,18 +437,12 @@
                 },
                 hi: {
                     name: 'पैन कार्ड आवेदन (PAN Card)',
-                    desc: 'नये पैन कार्ड के लिए आवेदन करें या मौजूदा विवरण ऑनलाइन अपडेट करें।',
+                    desc: 'वित्तीय लेनदेन, आयकर रिटर्न और बैंक खाता खोलने के लिए आवश्यक स्थायी खाता संख्या (PAN) हेतु आवेदन करें.',
                     steps: [
                         "Protean (NSDL) या UTIITSL के आधिकारिक पोर्टल पर जाएं।",
                         "Form 49A चुनें और विवरण भरें।",
                         "पहचान प्रमाण और पते का प्रमाण अपलोड करें।",
                         "ऑनलाइन शुल्क भुगतान करें और रसीद सहेजें।"
-                    ],
-                    updateSteps: [
-                        "NSDL या UTIITSL पोर्टल पर जाएं और 'Changes/Correction in PAN Data' चुनें।",
-                        "मौजूदा 10-अंकीय पैन दर्ज करें और नया विवरण भरें।",
-                        "संशोधन हेतु वैध दस्तावेज़ अपलोड करें।",
-                        "ऑनलाइन शुल्क का भुगतान करें और आधार OTP से ई-साइन करें।"
                     ],
                     documents: [
                         "पहचान प्रमाण: आधार कार्ड, वोटर आईडी या पासपोर्ट",
@@ -505,12 +487,6 @@
                         "Set a 6-digit security PIN to secure your account.",
                         "Link your issuing authorities (e.g., CBSE, Ministry of Road Transport, UIDAI) to fetch your official documents."
                     ],
-                    updateSteps: [
-                        "Log in to your DigiLocker account using your mobile number/Aadhaar and 6-digit PIN.",
-                        "Go to 'Issued Documents' and click 'Refresh' to update old records directly from issuer databases.",
-                        "To update mobile/profile settings, navigate to Account Settings and authenticate via OTP.",
-                        "To sync new documents, click 'Search Documents', select the issuing agency, and enter new policy/certificate numbers."
-                    ],
                     documents: [
                         "Aadhaar Card linked with active mobile number",
                         "Details of educational certificates, vehicle registration, or PAN for pulling records"
@@ -525,12 +501,6 @@
                         "OTP द्वारे पडताळणी पूर्ण करा.",
                         "६-अंकी सुरक्षा पिन सेट करा आणि तुमचे दस्तऐवज मिळवा."
                     ],
-                    updateSteps: [
-                        "मोबाईल नंबर/आधार आणि ६-अंकी पिन वापरून डिजिलॉकरमध्ये लॉगिन करा.",
-                        "'Issued Documents' वर जा आणि जुने दस्तऐवज अपडेट करण्यासाठी 'Refresh' वर क्लिक करा.",
-                        "प्रोफाईल किंवा मोबाईल बदलण्यासाठी अकाउंट सेटिंग्जमध्ये जा आणि OTP द्वारे पडताळणी करा.",
-                        "नवीन प्रमाणपत्रे जोडण्यासाठी संस्था निवडून नवीन नंबर टाका."
-                    ],
                     documents: [
                         "सक्रिय मोबाईल नंबरशी जोडलेले आधार कार्ड",
                         "शैक्षणिक प्रमाणपत्र किंवा वाहन नोंदणी तपशील"
@@ -544,12 +514,6 @@
                         "'Sign Up' पर क्लिक करें और आधार से जुड़ा मोबाइल नंबर दर्ज करें।",
                         "OTP सत्यापन पूरा करें और 6-अंकीय सुरक्षा पिन सेट करें।",
                         "अपने आधिकारिक दस्तावेज प्राप्त करने के लिए जारीकर्ता संस्थाओं को लिंक करें।"
-                    ],
-                    updateSteps: [
-                        "मोबाइल नंबर/आधार और 6-अंकीय पिन का उपयोग करके डिजीलाकर में लॉगिन करें।",
-                        "'Issued Documents' में जाएं और नए डेटा के लिए 'Refresh' पर क्लिक करें।",
-                        "प्रोफ़ाइल या मोबाइल नंबर अपडेट करने के लिए Account Settings में जाएं।",
-                        "नए दस्तावेज़ सिंक करने के लिए संस्था चुनें और प्रमाण पत्र नंबर दर्ज करें।"
                     ],
                     documents: [
                         "सक्रिय मोबाइल नंबर से जुड़ा आधार कार्ड",
@@ -590,13 +554,6 @@
                         "Pay the fee online and take the online learner's license test.",
                         "After 30 days, book an appointment slot for your Permanent Driving License test at the RTO."
                     ],
-                    updateSteps: [
-                        "Visit sarathi.parivahan.gov.in and select your state.",
-                        "Choose 'Apply for DL Renewal' or 'Change of Address in DL' from Driving License services.",
-                        "Enter your Driving License number and Date of Birth to fetch your record.",
-                        "Upload updated address proof or medical Form 1A (for renewal above 40 years).",
-                        "Pay the processing fee online and track your application status via reference number."
-                    ],
                     documents: [
                         "Age Proof: Birth Certificate, PAN Card, or Passport",
                         "Address Proof: Aadhaar Card, Voter ID, or Utility Bill",
@@ -614,13 +571,6 @@
                         "ऑनलाइन शुल्क भरा आणि ऑनलाइन चाचणी द्या.",
                         "३० दिवसानंतर पक्क्या लायसन्सच्या चाचणीसाठी आरटीओ कार्यालयात स्लॉट बुक करा."
                     ],
-                    updateSteps: [
-                        "sarathi.parivahan.gov.in वर जा आणि तुमचे राज्य निवडा.",
-                        "'Apply for DL Renewal' किंवा 'Change of Address in DL' निवडा.",
-                        "तुमचा ड्रायव्हिंग लायसन्स नंबर आणि जन्मतारीख टाका.",
-                        "नवीन पत्ता पुरावा किंवा वैद्यकीय अर्ज Form 1A अपलोड करा.",
-                        "ऑनलाइन शुल्क भरा आणि अर्जाची स्थिती ट्रॅक करा."
-                    ],
                     documents: [
                         "वयाचा पुरावा: जन्म दाखला, पॅन कार्ड किंवा पासपोर्ट",
                         "पत्ता पुरावा: आधार कार्ड किंवा मतदान ओळखपत्र",
@@ -635,13 +585,6 @@
                         "'Apply for Learner License' पर क्लिक करें और फॉर्म भरें।",
                         "दस्तावेज़ अपलोड करें और ऑनलाइन टेस्ट पास करें।",
                         "30 दिनों के बाद स्थायी ड्राइविंग लाइसेंस के लिए आरटीओ में स्लॉट बुक करें।"
-                    ],
-                    updateSteps: [
-                        "sarathi.parivahan.gov.in पर जाएं और अपना राज्य चुनें।",
-                        "'Apply for DL Renewal' या 'Change of Address in DL' विकल्प चुनें।",
-                        "ड्राइविंग लाइसेंस नंबर और जन्मतिथि दर्ज करें।",
-                        "नया पता प्रमाण या मेडिकल फॉर्म 1A अपलोड करें।",
-                        "ऑनलाइन शुल्क भुगतान करें और स्थिति ट्रैक करें।"
                     ],
                     documents: [
                         "आयु प्रमाण: जन्म प्रमाण पत्र, पैन कार्ड या पासपोर्ट",
@@ -684,12 +627,6 @@
                         "Fill in personal details, land ownership details, and bank account information.",
                         "Submit the form and complete e-KYC via Aadhaar OTP."
                     ],
-                    updateSteps: [
-                        "Visit pmkisan.gov.in and go to 'Farmers Corner'.",
-                        "Select 'e-KYC' to complete mandatory OTP-based or biometric Aadhaar re-verification.",
-                        "Click 'Name Correction as per Aadhaar' to fix spelling mismatches in government records.",
-                        "Select 'Edit Farmer Details' to update farmland survey numbers, Khata details, or bank account linkages."
-                    ],
                     documents: [
                         "Aadhaar Card linked with active mobile number",
                         "Land ownership documents (Khatauni, Land Khata number, or 7/12 extract)",
@@ -706,12 +643,6 @@
                         "आधार क्रमांक आणि राज्य निवडून माहिती प्रविष्ट करा.",
                         "जमिनीचा तपशील आणि बँक खात्याची माहिती भरा व सबमिट करा."
                     ],
-                    updateSteps: [
-                        "pmkisan.gov.in ला भेट द्या आणि 'Farmers Corner' वर जा.",
-                        "अनिवार्य e-KYC पूर्ण करण्यासाठी 'e-KYC' पर्याय निवडा.",
-                        "नावातील स्पेलिंग दुरुस्त करण्यासाठी 'Name Correction as per Aadhaar' वर क्लिक करा.",
-                        "जमिनीचा ७/१२ किंवा बँक खाते माहिती बदलण्यासाठी 'Edit Farmer Details' निवडा."
-                    ],
                     documents: [
                         "आधार कार्ड",
                         "जमिनीचे कागदपत्र (७/१२ उतारा किंवा ८-अ)",
@@ -726,12 +657,6 @@
                         "'New Farmer Registration' पर क्लिक करें।",
                         "आधार नंबर दर्ज करें और भूमि का विवरण भरें।",
                         "फॉर्म सबमिट करें और e-KYC पूरा करें।"
-                    ],
-                    updateSteps: [
-                        "pmkisan.gov.in पर जाएं और 'Farmers Corner' में जाएं।",
-                        "अनिवार्य e-KYC पूरा करने के लिए 'e-KYC' पर क्लिक करें।",
-                        "नाम में सुधार के लिए 'Name Correction as per Aadhaar' चुनें।",
-                        "जमीन या बैंक विवरण अपडेट करने के लिए 'Edit Farmer Details' विकल्प का उपयोग करें।"
                     ],
                     documents: [
                         "आधार कार्ड",
@@ -776,12 +701,6 @@
                         "Check your family's eligibility status.",
                         "Complete e-KYC and download your Ayushman Golden Card instantly."
                     ],
-                    updateSteps: [
-                        "Go to beneficiary.nha.gov.in and log in with your mobile number.",
-                        "Search for your family record using Ration Card/Aadhaar.",
-                        "Click 'Redo e-KYC' to update photo or demographic information.",
-                        "Click 'Add Member' to append new family members (e.g., newborn or spouse) with relevant birth/marriage certificates."
-                    ],
                     documents: [
                         "Aadhaar Card for all family members",
                         "Ration Card or State-issued Family ID",
@@ -797,12 +716,6 @@
                         "रेशन कार्ड किंवा आधार द्वारे तुमची पात्रता तपासा.",
                         "ई-केवायसी पूर्ण करा आणि तुमचे आयुष्मान कार्ड डाउनलोड करा."
                     ],
-                    updateSteps: [
-                        "beneficiary.nha.gov.in वर जा आणि मोबाईल नंबरने लॉगिन करा.",
-                        "रेशन कार्ड/आधार वापरून कुटुंब शोधा.",
-                        "माहिती किंवा फोटो अपडेट करण्यासाठी 'Redo e-KYC' वर क्लिक करा.",
-                        "कुटुंबात नवीन सदस्याचे नाव जोडण्यासाठी 'Add Member' वर क्लिक करा."
-                    ],
                     documents: [
                         "सर्व कुटुंबातील सदस्यांचे आधार कार्ड",
                         "रेशन कार्ड किंवा कुटुंब ओळखपत्र",
@@ -817,12 +730,6 @@
                         "मोबाइल नंबर और OTP से लॉगिन करें।",
                         "राशन कार्ड या आधार के माध्यम से अपनी पात्रता जांचें।",
                         "e-KYC पूरा करें और आयुष्मान कार्ड डाउनलोड करें।"
-                    ],
-                    updateSteps: [
-                        "beneficiary.nha.gov.in पर जाएं और मोबाइल नंबर से लॉगिन करें।",
-                        "राशन कार्ड/आधार से अपने परिवार का विवरण खोजें।",
-                        "फोटो या विवरण अपडेट करने के लिए 'Redo e-KYC' पर क्लिक करें।",
-                        "नए सदस्य को जोड़ने के लिए 'Add Member' विकल्प का चयन करें।"
                     ],
                     documents: [
                         "सभी सदस्यों का आधार कार्ड",
